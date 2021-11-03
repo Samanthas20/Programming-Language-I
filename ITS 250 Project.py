@@ -1,55 +1,70 @@
-###the following program is something that can be used to help students study.\
-###The program will work by calculating how many hours a certain student should study given the difficulty\
-###and the current grade within that class. The results should produce variying results that will help the student\
-###better achieve a good grade in each of their classes.
-#Noah wrote this.
+#the following program is something that can be used to help students study.\
+#The program will work by calculating how many hours a certain student should study given the difficulty\
+#and the current grade within that class. The results should produce variying results that will help the student\
+#better acieve a good grade in each of their classes.#
 
-###if a student takes simpleCourse then his or her study time should be the longest. 
-###if a student takes moderateCourse then his or her study time should take less time.
-###if a student takes difficultCourse then his or her study time should take fastest.
-#Samantha wrote this.
+print("The following is a program to help you figure out how much you need to study for a class per week")
 
-#Pseudocode.\
-#Input the constant number of hours a student should study for a course.
-#Input the level of course rigor.
-#Calculate the number of hours a student should study for a course depending on the level of course rigor.
-#Display the number of hours a student should study for a course.
-#Samantha wrote this.
+#The main piece of this function that will state how much to study for each class.
+def program():
+  course=input("Name of the course:")
+  grade=int(input("Grade in the course:"))
+  diff=int(input("Difficulty of the class on a scale of 1-3, 3 being the hardest:",  ))
+  print("You have a",grade,"in",course,"which you rated at a level", diff, "difficulty.")
+  calc(grade,diff,course)
+  
+#The base line of hours needed to study based off the grade in the course
+def calc(grade,diff,course):
+  if grade>=90:
+    study=1
+  elif 80<=grade<=89:
+    study=2
+  elif 70<=grade<=79:
+    study=3
+  elif 60<=grade<=69:
+    study=4
+  elif grade<60:
+    study=5
 
-#The basic_study_time indicates the minimal study time a student should study for each course, regardless of rigor.')
-#Samantha wrote this.
-print('Enter the variable, basic_study_time')
-#costant study time, regardless of course rigor, with given variables.
-#Samantha wrote this.
-basic_study_time = 1
-if basic_study_time == 1:
-    print('This is the minimal study time a student should study for a course, regardless of rigor.')
-else:
-    print('Incorrect, miminal study time must be 1.')
-simpleCourse = 2 
-#represents lowest level of course rigor using assignment operator.
-#Samantha wrote this.
-moderateCourse = 3
-#represents moderate level of course rigor using assignment operator.
-#Samantha wrote this.
-difficultCourse = 4 
-#represent highest level of course rigor using assignment operator.
-#Samantha wrote this.
+#The modifier to hours needed to study based off of difficulty in the class
+  if diff==3:
+    mult=2
+  elif diff==2:
+    mult=1.5
+  else:
+    mult=1
+  
+  print("Therefore, you must study for",(study*mult),"hours a week in your",course,"course.")
 
-study_time_for_simpleCourse = (basic_study_time + simpleCourse)
-study_time_for_moderateCourse = (basic_study_time + moderateCourse)
-study_time_for_difficultCourse = (basic_study_time + difficultCourse)
+#The program is designed for 3 classes in your schedule
+program()
+program()
+program()
 
-#results in Boolean expression
-#Samantha wrote this.
-simpleCourse <= moderateCourse and moderateCourse > simpleCourse
+#A summation of the total hours needed to study for all classes
+#User inputs data from the output of previous function
+sum=0
+total=int(input("Enter the number of hours you have to study for each class.\
+  (enter 0 if you have no more hours to input):"))
+while total !=0: 
+  sum=sum+total
+  total=float(input("Enter the number of hours you have to study for each class.\
+     (enter 0 if you have no more hours to input):"))
+print("The total number of hours you have to study is",sum)
 
-maxStudy = 5
-while maxStudy > 10:
-    print('take a break.')
+#A countdown for how many hours left total with advice/motivation
+#User inputed data from tha summation output
+def countdown():
+    hours_left=float(input("How many hours left do you have left to study? "))
+    course = [hours_left]
+    for hours in course:
+        if hours >= 5:
+         print("Make sure to take a 30 min break every 2 hours to keep your focus")
+        elif hours <= 4:
+            print("You're almost finished!)")
+        elif hours ==0:
+            print("Congrats, you're finished for this week. Go out and have a good time with some friends!")
 
-#Ending limit.
-#Samantha wrote this.
-##for end in range (5):
-##    end = int(input('maxStudy: '))
-
+countdown()
+countdown()
+countdown()
