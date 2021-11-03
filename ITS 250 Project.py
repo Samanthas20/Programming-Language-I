@@ -60,7 +60,7 @@ def countdown():
     for hours in course:
         if hours >= 5:
          print("Make sure to take a 30 min break every 2 hours to keep your focus")
-        elif hours <= 4:
+        elif 0 < hours <= 4:
             print("You're almost finished!)")
         elif hours ==0:
             print("Congrats, you're finished for this week. Go out and have a good time with some friends!")
